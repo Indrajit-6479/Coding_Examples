@@ -1,6 +1,7 @@
 package com.map_examples;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class FindFrequentNoCh {
     // Indrajit Rajesh Rananavare
@@ -13,17 +14,21 @@ public class FindFrequentNoCh {
     }
 
     private static void findFrequentNoOfCh(String myName) {
-        LinkedHashMap<Character, Integer> map = new LinkedHashMap<>();
+        LinkedHashMap<Character, Integer> characterMap = new LinkedHashMap<>();
         for (char ch : myName.toCharArray()) {
-            if (!map.containsKey(ch)) {
-                map.put(ch, 1);
+            if (!characterMap.containsKey(ch)) {
+                characterMap.put(ch, 1);
 //                map.put(ch, map.get(ch) + 1);
             } else {
-                map.put(ch, map.get(ch) + 1);
+                characterMap.put(ch, characterMap.get(ch) + 1);
 //                map.put(ch, 1);
             }
         }
-        System.out.println(map);
+        System.out.println(characterMap);
+
+        for (Map.Entry<Character, Integer> entry : characterMap.entrySet()) {
+            System.out.println("Character: " + entry.getKey() + " " + "Duplicate count: " + entry.getValue());
+        }
     }
 
 }
